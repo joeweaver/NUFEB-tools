@@ -1,0 +1,3 @@
+[submodule "python/nufebtools"]
+	path = python/nufebtools
+	url = https://github.com/joeweaver/nufebtools.git
