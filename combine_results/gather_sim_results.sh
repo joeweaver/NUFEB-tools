@@ -10,7 +10,7 @@ find $experiment_dir -type d -wholename '*Run_[0-9]*_[0-9]*/Results/shape*' -exe
 
 first_dir="$(head -n 1 sim_dirs.txt)"
 header="$(head -n 1 $first_dir"/run_areas_2d.csv")"
-echo $header",RunId" > gathered_sim_results.csv
+echo "RunID,"$header > gathered_sim_results.csv
 
 for p in `cat sim_dirs.txt`
 do
