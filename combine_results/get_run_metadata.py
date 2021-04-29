@@ -5,9 +5,10 @@ import re
 
 base_dir = sys.argv[1]#"/home/joe/professional/research/NUFEB-cyanobacteria/data/exploratory/fourth_test_with_dist/distributions"
 run_code = sys.argv[2]#"83_1"
-write_dir = sys.argv[3]#'.'
+
 
 run_name = f'Run_{run_code}'
+write_dir = os.path.join(base_dir,run_name,'Results','shape_metrics')
 atom_file = os.path.join(base_dir,f'atom_{run_code}.in')
 run_dir =os.path.join(base_dir, run_name)
 
@@ -59,12 +60,12 @@ with open(atom_file,'r') as f:
                    print('Got to Nutrient data')
             elif(ATOMS == read_state):
                 break;
-with open('spatial_distribution.csv','w') as f:
+with open(os.path.join(write_dir,'spatial_distribution.csv'),'w') as f:
     f.write('RunID,Pattern, Intensity, Radius, Points Per Cluster\n')
     f.write(f'{run_name},{spatial_pattern},{spatial_intensity},{spatial_radius},{spatial_cluster_pts}\n')
 
 
-with open('atom_sizes.csv','w') as f:
+with open(os.path.join(write_dir,'atom_sizes.csv'),'w') as f:
     f.write('RunID,Atom,Diameter\n')
     for k,v in atoms.items():
         f.write(f'{run_name},{k},{v}\n')
