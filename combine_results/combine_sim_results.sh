@@ -18,5 +18,5 @@ do
     p2="$(dirname "$p1")"
     runname="$(basename "$p2")"
     file=$p"/run_areas_2d.csv" 
-    tail -n +2 $file | sed -r "~s/$/,$runname/" - >> combined_sim_results.csv
+    tail -n +2 $file | sed -r "~s/^/$runname,/" - >> combined_sim_results.csv
 done
