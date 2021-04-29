@@ -10,7 +10,7 @@ find $experiment_dir -type d -wholename '*Run_[0-9]*_[0-9]*/Results/shape*' -exe
 
 first_dir="$(head -n 1 sim_dirs.txt)"
 header="$(head -n 1 $first_dir"/run_areas_2d.csv")"
-echo $header",RunId" > combined_sim_results.csv
+echo $header",RunId" > gathered_sim_results.csv
 
 for p in `cat sim_dirs.txt`
 do
@@ -18,5 +18,5 @@ do
     p2="$(dirname "$p1")"
     runname="$(basename "$p2")"
     file=$p"/run_areas_2d.csv" 
-    tail -n +2 $file | sed -r "~s/^/$runname,/" - >> combined_sim_results.csv
+    tail -n +2 $file | sed -r "~s/^/$runname,/" - >> gathered_sim_results.csv
 done
