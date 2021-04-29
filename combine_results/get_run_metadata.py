@@ -3,14 +3,16 @@ import sys
 import re
 
 
-base_dir = sys.argv[1]#"/home/joe/professional/research/NUFEB-cyanobacteria/data/exploratory/fourth_test_with_dist/distributions"
-run_code = sys.argv[2]#"83_1"
+fulldir = sys.argv[1]#"/home/joe/professional/research/NUFEB-cyanobacteria/data/exploratory/fourth_test_with_dist/distributions/Run_83_1"
+runs_dir = os.path.dirname(fulldir)#"/home/joe/professional/research/NUFEB-cyanobacteria/data/exploratory/fourth_test_with_dist/distributions"
+run_dir = os.path.basename(fulldir)#"Run_83_1"
+run_code = run_dir[4:]
 
 
 run_name = f'Run_{run_code}'
-write_dir = os.path.join(base_dir,run_name,'Results','shape_metrics')
-atom_file = os.path.join(base_dir,f'atom_{run_code}.in')
-run_dir =os.path.join(base_dir, run_name)
+write_dir = os.path.join(runs_dir,run_name,'Results','shape_metrics')
+atom_file = os.path.join(runs_dir,f'atom_{run_code}.in')
+run_dir =os.path.join(runs_dir, run_name)
 
 HEADER = 0
 ATOMS = 1
