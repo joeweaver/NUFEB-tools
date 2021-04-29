@@ -12,3 +12,11 @@ fully_combined = pd.merge(spatial_results, sizes, how='left',
                     .drop(columns=['Atom'])
 
 fully_combined.to_csv('combined_gathered_results_metadata.csv')
+
+def last_timestep(df):
+    return(df[df['Time (s)'] == max(df['Time (s)'])])
+
+# %%
+lt = fully_combined.groupby(by='RunID').apply(last_timestep)
+
+lt.to_csv('final_timestep_combined_gathered_results_metadata.csv')
