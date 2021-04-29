@@ -1,4 +1,4 @@
-example_run.sh
+example_*.sh
 sim_dirs.txt
 *.csv
 
