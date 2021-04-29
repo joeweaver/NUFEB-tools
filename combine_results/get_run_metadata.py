@@ -68,6 +68,6 @@ with open(os.path.join(write_dir,'spatial_distribution.csv'),'w') as f:
 
 
 with open(os.path.join(write_dir,'atom_sizes.csv'),'w') as f:
-    f.write('RunID,Atom,Diameter\n')
+    f.write('RunID,Atom,Diameter (meters)\n')
     for k,v in atoms.items():
         f.write(f'{run_name},{k},{v}\n')
