@@ -7,7 +7,7 @@ sizes = pd.read_csv('gathered_atom_sizes.csv')
 spatial_results = pd.merge(spatial, results)
 
 fully_combined = pd.merge(spatial_results, sizes, how='left',
-                          left_on=['RunID', 'seed'],
+                          left_on=['RunID', 'Seed ID'],
                           right_on = ['RunID', 'Atom']) \
                     .drop(columns=['Atom'])
 
